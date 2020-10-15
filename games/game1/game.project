@@ -2,8 +2,8 @@
 main_collection = /main/main.collectionc
 
 [display]
-width = 960
-height = 640
+width = 1028
+height = 1028
 
 [script]
 shared_state = 1
@@ -12,6 +12,6 @@ shared_state = 1
 payment_pointer = YOUR_PAYMENT_POINTER
 
 [project]
-dependencies = https://github.com/defold/extension-webmonetization/archive/master.zip
+dependencies = https://github.com/defold/extension-webmonetization/archive/master.zip,https://github.com/AGulev/drawpixels/archive/master.zip
 title = game1
 
