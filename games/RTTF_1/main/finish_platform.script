@@ -1,6 +1,7 @@
 function init(self)
 	self.num_players = 1
 	self.num_players_standing = 0
+	label.set_text("#win", "")
 end
 
 function on_message(self, message_id, message, sender)
@@ -9,6 +10,7 @@ function on_message(self, message_id, message, sender)
 		self.num_players_standing += 1
 		if self.num_players_standing == self.num_players then
 			print("Win!")
+			label.set_text("#win", "Winner!")
 		end
 	end
 end
