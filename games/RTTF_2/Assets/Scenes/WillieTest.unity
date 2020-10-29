@@ -374,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 7
   jumpForce: 20
+  dashSpeed: 15
   maxAirJumps: 1
 --- !u!1 &2081881250
 GameObject:

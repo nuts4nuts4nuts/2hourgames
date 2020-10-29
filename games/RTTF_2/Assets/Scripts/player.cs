@@ -7,6 +7,7 @@ public class player : MonoBehaviour
 {
     Rigidbody2D myBody;
     SpriteRenderer mySprite;
+    Animator myAnim;
     public float movespeed;
     public float jumpForce;
     public float dashSpeed;
@@ -20,6 +21,7 @@ public class player : MonoBehaviour
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
         mySprite = gameObject.GetComponent<SpriteRenderer>();
+        myAnim = gameObject.GetComponent<Animator>();
         jumps = maxAirJumps;
     }
 
@@ -31,12 +33,14 @@ public class player : MonoBehaviour
             myBody.AddForce(new Vector2(-movespeed, 0));
             mySprite.flipX = true;
             facing = 0;
+            myAnim.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.D))
         {
             myBody.AddForce(new Vector2(movespeed, 0));
             mySprite.flipX = false;
             facing = 1;
+            myAnim.SetBool("Walking", true);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
