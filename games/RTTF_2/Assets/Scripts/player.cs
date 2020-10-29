@@ -6,8 +6,10 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     Rigidbody2D myBody;
+    SpriteRenderer mySprite;
     public float movespeed;
     public float jumpForce;
+    public float dashSpeed;
     bool grounded;
     public int maxAirJumps;
     int jumps;
@@ -17,6 +19,7 @@ public class player : MonoBehaviour
     void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
+        mySprite = gameObject.GetComponent<SpriteRenderer>();
         jumps = maxAirJumps;
     }
 
@@ -26,10 +29,14 @@ public class player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             myBody.AddForce(new Vector2(-movespeed, 0));
+            mySprite.flipX = true;
+            facing = 0;
         }
         if (Input.GetKey(KeyCode.D))
         {
             myBody.AddForce(new Vector2(movespeed, 0));
+            mySprite.flipX = false;
+            facing = 1;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,19 +44,18 @@ public class player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if(myBody.velocity.)
+            if(facing > 0)
             {
-
+                myBody.velocity = new Vector2(0, myBody.velocity.y);
+                myBody.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
             }
-            myBody.AddForce(new Vector2(movespeed, 0));
+            else
+            {
+                myBody.velocity = new Vector2(0, myBody.velocity.y);
+                myBody.AddForce(new Vector2(-dashSpeed, 0), ForceMode2D.Impulse);
+            }
         }
 
-        Facing();
-    }
-
-    private void Facing()
-    {
-        
     }
 
     void Jump()
