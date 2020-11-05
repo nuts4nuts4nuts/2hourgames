@@ -35,8 +35,6 @@ public class Player : MonoBehaviour
         Vector3 movePosition = _rigidbody.position + _moveVelocity * Time.fixedDeltaTime;
         movePosition.y -= _gravity; //gravity
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(ground_check.position, _groundCheckRadius, ground);
-        for(int i in )
         _rigidbody.MovePosition(movePosition);
     }
 }

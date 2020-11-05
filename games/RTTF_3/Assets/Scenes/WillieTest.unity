@@ -250,10 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a932356383f554a8fa940bc057e026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 7
-  jumpForce: 12
-  dashSpeed: 12
-  maxAirJumps: 1
+  movespeed: 0
+  jumpForce: 0
+  dashSpeed: 0
+  maxAirJumps: 0
 --- !u!4 &248808540
 Transform:
   m_ObjectHideFlags: 0
@@ -491,10 +491,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a932356383f554a8fa940bc057e026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 7
-  jumpForce: 12
-  dashSpeed: 12
-  maxAirJumps: 1
+  movespeed: 0
+  jumpForce: 0
+  dashSpeed: 0
+  maxAirJumps: 0
 --- !u!61 &1588966256
 BoxCollider2D:
   m_ObjectHideFlags: 0

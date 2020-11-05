@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerTest : MonoBehaviour
 {
-<<<<<<< HEAD
     // Start is called before the first frame update
     Rigidbody2D myBody;
     SpriteRenderer mySprite;
@@ -15,36 +14,18 @@ public class Player : MonoBehaviour
     public int maxAirJumps;
     int jumps;
     int facing = 1;
-=======
-    public float speed;
-    public Transform ground_check;
-    public LayerMask ground;
-
-    private Rigidbody2D _rigidbody;
-    private Vector2 _moveVelocity;
-    private Animator _animator;
-
-    const float _gravity = 1;
-    const float _groundCheckRadius = 0.3f;
->>>>>>> badeb906e35d948295bdcb9374f32a2f39f2f508
 
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
         myBody = gameObject.GetComponent<Rigidbody2D>();
         mySprite = gameObject.GetComponent<SpriteRenderer>();
         jumps = maxAirJumps;
-=======
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
->>>>>>> badeb906e35d948295bdcb9374f32a2f39f2f508
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
         if (Input.GetKey(KeyCode.A))
         {
             myBody.AddForce(new Vector2(-movespeed, 0));
@@ -101,20 +82,5 @@ public class Player : MonoBehaviour
             grounded = true;
             jumps = maxAirJumps;
         }
-=======
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        _moveVelocity = moveInput.normalized * speed;
-        _animator.SetFloat("X_Velo", Mathf.Abs(_moveVelocity.x));
-    }
-
-    void FixedUpdate()
-    {
-        Vector3 movePosition = _rigidbody.position + _moveVelocity * Time.fixedDeltaTime;
-        movePosition.y -= _gravity; //gravity
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(ground_check.position, _groundCheckRadius, ground);
-        for(int i in )
-        _rigidbody.MovePosition(movePosition);
->>>>>>> badeb906e35d948295bdcb9374f32a2f39f2f508
     }
 }
