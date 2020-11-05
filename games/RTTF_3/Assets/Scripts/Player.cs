@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _moveVelocity;
     private Animator _animator;
+    private bool _jump;
 
     const float _gravity = 0.05f;
+    const float _jumpPower = 0.5f;
     const float _groundCheckRadius = 0.3f;
 
     // Start is called before the first frame update
@@ -28,6 +30,11 @@ public class Player : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
         _moveVelocity = moveInput.normalized * speed;
         _animator.SetFloat("X_Velo", Mathf.Abs(_moveVelocity.x));
+
+        if(Input.GetAxisRaw("Vertical") > 0.1f)
+        {
+            _jump = true;
+        }
     }
 
     void FixedUpdate()
@@ -41,6 +48,11 @@ public class Player : MonoBehaviour
             if(collider.gameObject != gameObject)
             {
                 movePosition.y += _gravity;
+                if(_jump)
+                {
+                    movePosition.y += _jumpPower;
+                    _jump = false;
+                }
             }
         }
         _rigidbody.MovePosition(movePosition);
