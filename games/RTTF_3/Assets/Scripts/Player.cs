@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private Vector2 _moveVelocity;
     private Animator _animator;
 
-    const float _gravity = 1;
+    const float _gravity = 0.05f;
     const float _groundCheckRadius = 0.3f;
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
         _moveVelocity = moveInput.normalized * speed;
         _animator.SetFloat("X_Velo", Mathf.Abs(_moveVelocity.x));
     }
@@ -33,10 +33,16 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movePosition = _rigidbody.position + _moveVelocity * Time.fixedDeltaTime;
-        movePosition.y -= _gravity; //gravity
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(ground_check.position, _groundCheckRadius, ground);
-        for(int i in )
+        movePosition.y -= _gravity; //gravity
+        foreach (Collider2D collider in colliders)
+        {
+            if(collider.gameObject != gameObject)
+            {
+                movePosition.y += _gravity;
+            }
+        }
         _rigidbody.MovePosition(movePosition);
     }
 }

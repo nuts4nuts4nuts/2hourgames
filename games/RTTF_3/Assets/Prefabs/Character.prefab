@@ -131,6 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   ground_check: {fileID: 1868512667}
+  ground:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!50 &1429312452
 Rigidbody2D:
   serializedVersion: 4
