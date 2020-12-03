@@ -36,7 +36,7 @@ public class FollowTheCharacters : MonoBehaviour
 
         averagePosition /= players.Length;
 
-        cam.transform.SetPositionAndRotation(averagePosition, cam.transform.rotation);
+        cam.transform.SetPositionAndRotation(new Vector3(averagePosition.x, averagePosition.y, cam.transform.position.z), cam.transform.rotation);
         cam.orthographicSize = Mathf.Max(maxPlayerDistance, minimumDistance);
     }
 }
