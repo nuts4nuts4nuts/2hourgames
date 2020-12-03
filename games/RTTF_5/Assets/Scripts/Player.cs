@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public bool isPlayerOne;
     private MultInput _input;
+    private Animator _animator;
+    
     // Start is called before the first frame update
     Rigidbody2D myBody;
     SpriteRenderer mySprite;
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _input = isPlayerOne ? MultInput.One : MultInput.Two;
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -80,6 +83,8 @@ public class Player : MonoBehaviour
         {
             curDashCooldown -= Time.deltaTime;
         }
+
+        _animator.SetBool("isRunning", actions["moveLeft"] || actions["moveRight"]);
     }
 
     void FixedUpdate()

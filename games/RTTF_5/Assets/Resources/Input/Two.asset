@@ -24,3 +24,9 @@ MonoBehaviour:
   _doThing:
     First: 47
     Second: 0
+  _fastFall:
+    First: 274
+    Second: 0
+  _dash:
+    First: 303
+    Second: 0
