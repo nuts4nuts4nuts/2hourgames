@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool isPlayerOne;
+    private MultInput _input;
     // Start is called before the first frame update
     Rigidbody2D myBody;
     SpriteRenderer mySprite;
@@ -21,53 +23,45 @@ public class Player : MonoBehaviour
     int facing = 1;
     Dictionary<string, bool> actions = new Dictionary<string, bool>()
     {
-        {"moveRight", false },
-        {"moveLeft", false },
-        {"jump", false },
-        {"dash", false },
-        {"fastfall", false }
+        { "moveRight", false },
+        { "moveLeft", false },
+        { "jump", false },
+        { "dash", false },
+        { "fastfall", false }
     };
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        _input = isPlayerOne ? MultInput.One : MultInput.Two;
+    }
+
+    private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
         mySprite = gameObject.GetComponent<SpriteRenderer>();
         jumps = maxAirJumps;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            actions["moveLeft"] = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            actions["moveLeft"] = false;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            actions["moveRight"] = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            actions["moveRight"] = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
+        actions["moveLeft"] = _input.GetKey(InputKey.Left);
+        actions["moveRight"] = _input.GetKey(InputKey.Right);
+
+        if (_input.GetKeyDown(InputKey.Jump))
         {
             Jump();
         }
-        if (!grounded && Input.GetKey(KeyCode.S))
+
+        if (!grounded && _input.GetKeyDown(InputKey.FastFall))
         {
             actions["fastfall"] = true;
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (_input.GetKeyUp(InputKey.FastFall))
         {
             actions["fastfall"] = false;
         }
-        if (curDashCooldown <= 0 && Input.GetKeyDown(KeyCode.LeftShift))
+
+        if (curDashCooldown <= 0 && _input.GetKeyDown(InputKey.Dash))
         {
             curDashCooldown = dashCooldown;
             if (facing > 0)
@@ -82,11 +76,10 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(curDashCooldown > 0)
+        if (curDashCooldown > 0)
         {
             curDashCooldown -= Time.deltaTime;
         }
-
     }
 
     void FixedUpdate()
@@ -99,12 +92,14 @@ public class Player : MonoBehaviour
                 mySprite.flipX = false;
                 facing = 1;
             }
+
             if (kvp.Key == "moveLeft" && kvp.Value == true)
             {
                 myBody.AddForce(new Vector2(-movespeed, 0));
                 mySprite.flipX = true;
                 facing = 0;
             }
+
             if (kvp.Key == "fastfall" && kvp.Value == true)
             {
                 myBody.velocity = new Vector2(myBody.velocity.x, 0);
