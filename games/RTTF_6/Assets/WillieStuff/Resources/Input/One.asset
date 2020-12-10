@@ -20,7 +20,7 @@ MonoBehaviour:
     Second: 0
   _jump:
     First: 32
-    Second: 0
+    Second: 119
   _doThing:
     First: 0
     Second: 0
