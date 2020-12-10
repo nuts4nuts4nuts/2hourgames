@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float wallJumpSideMultiplier;
     public float dashSpeed;
     public float dashCooldown;
-    float playerWidth = 1.2f;
+    float playerWidth = .95f;
     float curDashCooldown;
     bool grounded;
     bool againstWallR;
@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Vector2.down, playerWidth, 1 << floorMask);
-            Debug.DrawRay(transform.position, Vector2.down * playerWidth, Color.red, 1f);
+            //Debug.DrawRay(transform.position, Vector2.down * playerWidth, Color.red, 1f);
             if (hit.collider != null)
             {
                 grounded = true;

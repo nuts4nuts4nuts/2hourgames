@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Two
   m_EditorClassIdentifier: 
   _right:
-    First: 0
+    First: 275
     Second: 0
   _left:
-    First: 0
+    First: 276
     Second: 0
   _jump:
-    First: 0
+    First: 273
     Second: 0
   _doThing:
     First: 0
     Second: 0
   _fastFall:
-    First: 0
+    First: 274
     Second: 0
   _dash:
-    First: 0
+    First: 303
     Second: 0

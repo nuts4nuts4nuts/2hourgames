@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _right:
     First: 100
-    Second: 275
+    Second: 0
   _left:
     First: 97
-    Second: 276
+    Second: 0
   _jump:
     First: 32
-    Second: 273
+    Second: 0
   _doThing:
     First: 0
     Second: 0
   _fastFall:
     First: 115
-    Second: 274
+    Second: 0
   _dash:
     First: 304
-    Second: 303
+    Second: 0
