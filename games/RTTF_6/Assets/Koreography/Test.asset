@@ -19,8 +19,10 @@ MonoBehaviour:
   mTempoSections:
   - sectionName: Thing
     startSample: 0
-    samplesPerBeat: 24000
+    samplesPerBeat: 22050
     beatsPerMeasure: 4
     bStartNewMeasure: 1
   mTracks:
   - {fileID: 11400000, guid: 81b3384405487f04ca213d88905cb25d, type: 2}
+  - {fileID: 11400000, guid: 28ea4db2613f1794baad09675245966e, type: 2}
+  - {fileID: 11400000, guid: e49e08159c1e68e44a00723603d6e9b5, type: 2}

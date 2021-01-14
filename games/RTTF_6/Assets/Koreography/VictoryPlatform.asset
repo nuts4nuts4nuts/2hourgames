@@ -15,17 +15,17 @@ MonoBehaviour:
   mEventID: VictoryPlatform
   mEventList:
   - mStartSample: 0
-    mEndSample: 192000
-  - mStartSample: 192000
-    mEndSample: 384000
-  - mStartSample: 384000
-    mEndSample: 576000
-  - mStartSample: 576000
-    mEndSample: 768000
-  - mStartSample: 768000
-    mEndSample: 960000
-  - mStartSample: 960000
-    mEndSample: 1152000
+    mEndSample: 176400
+  - mStartSample: 176400
+    mEndSample: 352800
+  - mStartSample: 352800
+    mEndSample: 529200
+  - mStartSample: 529200
+    mEndSample: 705600
+  - mStartSample: 705600
+    mEndSample: 882000
+  - mStartSample: 882000
+    mEndSample: 1058400
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.CurvePayload
   _AssetPayloads: []
